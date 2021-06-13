@@ -4,10 +4,18 @@ from typing import Literal
 from .repository.repository import get_output
 from .schemas.schemas import Request, languages
 
+tags_metadata = [
+    {
+        "name": "compiler",
+        "description": "Run **python** or **java** code!",
+    }
+]
+
 app = FastAPI(
     title="Online Code Runner",
     description="You can run python and java code!\n",
     version="0.1",
+    openapi_tags=tags_metadata
 )
 
 app.add_middleware(
